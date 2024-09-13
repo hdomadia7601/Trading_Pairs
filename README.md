@@ -24,5 +24,43 @@ ANALYSIS TOOLS FOR PAIR SELECTION: Data from sites NSE (Nifty 50) are taken. Pai
 
 **B. THE SIGNAL GENERATION METHOD AND TRADING STRATEGY**
 
+Statistical arbitrage determines the optimal time to execute a trade. After determining the spread of both stocks, it is possible to determine the location of any notable departures from the mean. This will make it easier for us to classify the associated assets into two groups: the "lag" asset and the "lead" asset. Usually, the lead asset performs better than the lag asset. This strategy is predicated on the idea that the spread from pairs exhibiting co-integration qualities is mean reverting in nature, meaning that a considerable deviation from the mean will present opportunities for arbitrage.
+
+Depending on how successful our trade is, the lead asset would take a long position (buy the stock, hoping that its price will increase later) and the lag asset would take a short position (sell the stock, hoping that its price will fall). This difference would give us a profit or loss. By computing the cumulative returns, Sharpe ratio, and compound annual growth rate (CAGR) for a pair of assets based on past price data supplied in a DataFrame, one can backtest the pairs trading method. 
+Using the Kalman Filter, we performed a regression study to determine the hedge ratio (hr) between the two assets. Calculating the dynamic hedge ratio using the Kalman filter The process known as Kalman filtering, or linear quadratic estimation, or LQE, makes use of a sequence of measurements that are observed over time and may contain errors related to statistical noise. Through the estimation of a joint probability distribution over the variables for each time-frame, it generates estimates of unknown variables that are typically more accurate than those based on a single measurement alone.
+Next, use y - (x * hr) to calculate the spread series. If we are interested in calculating the moving average, this can be used to smooth out estimations of other quantities.
+
+The Z-score indicates the number of standard deviations the spread now deviates from its mean throughout the past. Next, we established Z-score thresholds for long and short positions at entrance and exit. determined the long and short entry and exit points using the Z-score criterion, and the opposite Z-score criteria.
+
+# C. GENERATED TRADING SIGNALS AND POSITION SIZING
+
+Logic of trading
+
+Determine each pair's spread by multiplying Y by the hedging ratio * X. Regression using Kalman Filtering Function for figuring out the hedge ratio Utilizing rolling mean and standard deviation, compute the z-score of's' for the duration of 'half-life' intervals. Keep this as a z-score. To determine the half-life, use the half-life function. Establish the following: Z-scores for the upper and lower entries are 2.0 and 0.0, respectively. Go SHORT when Z-score passes the upper entrance Z-score; use Z-score return exit Z-score to terminate the situation. Proceed LONG; close the position with Z-score return exit Z-score when Z-score crosses lower entry Z-score. Perform a backtest on every pair and determine the performance metrics for each as the max drowns down. Sharpe proportion Assemble portfolios with a distribution of market values that is equal; the market value of each pair is the same.
+
+# D. Backtesting
+
+The back-test engine follows the steps:
+
+Spread is equal to Y - hedging ratio * X. To compute the hedge ratio, use the Kalman Filter Regression Function. Utilizing rolling mean and standard deviation, compute the z-score of's' for the duration of 'half-life' intervals. Keep this as a z-score. Half life can be calculated using the half-life function. Assign the following values to the Z-scores: exit = -0.5, lower entry = -1.25, and upper entry = 1.25. Go SHORT when Z-score passes the upper entrance Z-score; use Z-score return exit Z-score to terminate the situation. Proceed LONG when the Z-score crosses the lower entry Z-score. 
+
+Utilizing Z-score return exit Z-score D, close the location. PORTFOLIO PnL: A $100,000 starting capital is required. The number of shares that must be purchased for each stock is determined by taking into account both the original capital and the stock prices at the start of the trading session. Next, PnL is computed for Stock 1: A dataframe named "portfolio" is made to monitor different PnL components for stock 1. Based on the stock prices and cumulative positions (signals), the holdings for stock 1 are monitored.Following the purchase and sale of stock 1, the remaining funds are monitored. The total worth of stock 1 is determined by adding up all of the holdings, cash, and daily returns for the stock. PnL Estimation for Share 2: For stock 2, all the same variables are monitored and computed as they were for stock 1. The PnL of stocks 1 and 2, which are already stored, are added to determine the total PnL. After the NaN values are eliminated, the DataFrame is cleaned and then restored.
+
+
+# E. METRICS OF PERFORMANCE
+
+The Sharpe Ratio is a useful tool for evaluating an investment or portfolio's risk-adjusted return.It is frequently used to evaluate which assets or portfolios offer the best return while taking risk into account. * (Rp - Rf) / σp is the Sharpe Ratio (SR). where Rp is the portfolio's or investment's average return. Rf: The rate of return that is risk-free. σp: The standard deviation of the returns on the investment or portfolio. Since a greater sharpe ratio denotes a superior risk-adjusted return, it is often recommended.
+
+CAGR: Assuming that the investment has been compounding, it is used to calculate the yearly growth rate of an asset or investment over a given time period.It provides you with a consistent method to assess the return on an asset or investment, even in cases where growth or returns fluctuate over time. CAGR is equal to (final value / starting value) ^ (1 / n) - 1 Whereas Ending Value is the asset's value at the conclusion of the given time frame. Beginning Value is the asset's initial value at the start of the given time frame. n = The total number of years during the duration. Typically, it is employed to estimate future returns or evaluate the past performance of investments.
+
+
+
+
+
+
+
+
+
+
 
 
