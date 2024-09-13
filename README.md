@@ -13,6 +13,7 @@ Risk management: To make sure that possible losses are maintained within reasona
 Exit Strategy: The positions are closed when the spread narrows down again, or based on specific profit targets or time frames.
 
 **A. PAIR IDENTIFICATION AND SELECTION**
+
 A pair is selected based on their good statistical arbitrage opportunities over time.
 Correlation and cointegration are two key terms that we calculated to ensure that the stocks followed the necessary relative price movements, i.e., in line with good statistical arbitrage. 
 
