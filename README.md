@@ -12,7 +12,7 @@ Risk management: To make sure that possible losses are maintained within reasona
 
 Exit Strategy: The positions are closed when the spread narrows down again, or based on specific profit targets or time frames.
 
-**A. PAIR IDENTIFICATION AND SELECTION**
+# A. PAIR IDENTIFICATION AND SELECTION**
 
 A pair is selected based on their good statistical arbitrage opportunities over time.
 Correlation and cointegration are two key terms that we calculated to ensure that the stocks followed the necessary relative price movements, i.e., in line with good statistical arbitrage. 
@@ -23,7 +23,7 @@ Cointegration: A statistical feature of two or more time-series variables called
 
 ANALYSIS TOOLS FOR PAIR SELECTION: Data from sites NSE (Nifty 50) are taken. Pairs of 2 stocks are checked for their sharpe ratio and CAGR. The pair with highest sharpe ratio and CAGR is selected. After that, we proceed further in the trading strategy. If the co-integration test meets our threshold statistical significance (in our case 5%), then that pair of tickers will be stored in a list for later retrieval. Libraries imported for downloading data for the past years are yfinance. This library provides extensive data regarding the stocks' opening price, closing price, adjacent close price, low price, and high price over the years for different stocks/tickers.
 
-**B. THE SIGNAL GENERATION METHOD AND TRADING STRATEGY**
+# B. THE SIGNAL GENERATION METHOD AND TRADING STRATEGY**
 
 Statistical arbitrage determines the optimal time to execute a trade. After determining the spread of both stocks, it is possible to determine the location of any notable departures from the mean. This will make it easier for us to classify the associated assets into two groups: the "lag" asset and the "lead" asset. Usually, the lead asset performs better than the lag asset. This strategy is predicated on the idea that the spread from pairs exhibiting co-integration qualities is mean reverting in nature, meaning that a considerable deviation from the mean will present opportunities for arbitrage.
 
